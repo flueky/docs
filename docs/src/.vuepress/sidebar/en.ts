@@ -4,6 +4,8 @@ import { sidebar } from "docs-shared";
 export const enSidebarConfig = sidebar({
   "/": [
     "",
+    "blog-home",
+    "custom-blog-home",
     "get-started/",
     {
       text: "Guide",

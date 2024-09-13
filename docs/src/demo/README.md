@@ -22,10 +22,6 @@ actions:
 
 - [Project HomePage with features](./project-home.md)
 
-- [Blog HomePage](./blog-home.md)
-
-- [Custom Blog HomePage](./custom-blog-home.md)
-
 - [Portfolio HomePage](./portfolio-home.md)
 
 - [Encrypt Page](./encrypt.md) (Password: 1234)
