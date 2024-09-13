@@ -1,0 +1,100 @@
+{
+  "name": "vuepress-theme-hope-root",
+  "private": true,
+  "description": "A VuePress theme with tons of features",
+  "type": "module",
+  "workspaces": [
+    "demo/*",
+    "docs/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "cross-env NODE_ENV=production pnpm run --stream -r build",
+    "build:no-bundle": "concurrently \"tsc -b tsconfig.build.json\" \"pnpm run copy\"",
+    "clean": "pnpm run --stream -r clean",
+    "commit": "pnpm git-cz",
+    "copy": "pnpm run --parallel -r copy",
+    "dev": "concurrently \"tsc -b tsconfig.build.json --watch\" \"pnpm run dev:copy\"",
+    "dev:copy": "pnpm run --parallel -r dev:copy",
+    "docs:vite-build": "pnpm run -r docs:vite-build",
+    "docs:webpack-build": "pnpm run -r docs:vite-build",
+    "lint": "prettier . --check --write && eslint . --fix && pnpm lint:stylelint --fix",
+    "lint:check": "prettier . --check && eslint . && pnpm lint:stylelint",
+    "lint:md": "markdownlint-cli2 '**/*.md'",
+    "lint:prettier": "prettier --check .",
+    "lint:stylelint": "stylelint packages/*/{src,styles,templates}/**/*.{css,scss}",
+    "packages:bootstrap": "tsx scripts/bootstrap.ts",
+    "packages:check-update": "pnpm dlx npm-check-updates -u --deep --timeout 600000",
+    "packages:update": "pnpm up -r",
+    "prepare": "husky",
+    "release": "pnpm clean && pnpm build && pnpm release:version && pnpm release:publish && pnpm release:sync",
+    "release:publish": "lerna publish from-package --yes",
+    "release:sync": "cross-env NODE_OPTIONS=\"--experimental-json-modules\" tsx scripts/sync.ts",
+    "release:version": "lerna version",
+    "test": "cross-env TZ=Etc/UTC vitest --coverage"
+  },
+  "nano-staged": {
+    "**/*": "prettier --write --ignore-unknown",
+    "*.vue": "eslint --fix",
+    "*.{cjs,mjs,js,ts}": [
+      "eslint --fix",
+      "cross-env TZ=Etc/UTC vitest related --run"
+    ],
+    "*.md": "markdownlint-cli2 --fix",
+    "*.scss": "stylelint --fix",
+    "package.json": "sort-package-json"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-git"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.3.0",
+    "@commitlint/config-conventional": "19.2.2",
+    "@lerna-lite/cli": "3.7.1",
+    "@lerna-lite/publish": "3.7.1",
+    "@rollup/plugin-alias": "5.1.0",
+    "@rollup/plugin-commonjs": "26.0.1",
+    "@rollup/plugin-node-resolve": "15.2.3",
+    "@rollup/plugin-replace": "5.0.7",
+    "@types/node": "20.14.11",
+    "@vitest/coverage-v8": "2.0.3",
+    "@vue/eslint-config-typescript": "13.0.0",
+    "concurrently": "8.2.2",
+    "conventional-changelog-conventionalcommits": "8.0.0",
+    "cpx2": "7.0.1",
+    "cross-env": "7.0.3",
+    "cz-git": "1.9.4",
+    "esbuild": "0.23.0",
+    "eslint": "8.57.0",
+    "eslint-config-mister-hope": "0.1.1",
+    "eslint-plugin-vue": "9.27.0",
+    "execa": "9.3.0",
+    "gulp": "5.0.0",
+    "http-server": "14.1.1",
+    "husky": "9.1.1",
+    "markdownlint-cli2": "0.13.0",
+    "nano-staged": "0.8.0",
+    "ora": "8.0.1",
+    "prettier": "3.3.3",
+    "rimraf": "6.0.1",
+    "rollup": "4.18.1",
+    "rollup-plugin-copy": "3.5.0",
+    "rollup-plugin-dts": "6.1.1",
+    "rollup-plugin-esbuild": "6.1.1",
+    "rollup-plugin-resolve-shebang": "1.0.1",
+    "sort-package-json": "2.10.0",
+    "stylelint": "16.7.0",
+    "stylelint-config-hope": "7.0.2",
+    "through2": "4.0.2",
+    "tslib": "2.6.3",
+    "tsx": "4.16.2",
+    "typescript": "5.5.3",
+    "vitest": "2.0.3"
+  },
+  "packageManager": "pnpm@9.5.0",
+  "engines": {
+    "node": ">=20"
+  }
+}
