@@ -2,23 +2,24 @@ import { navbar } from "docs-shared";
 
 // region config
 export const enNavbarConfig = navbar([
-  "/get-started/",
-  "/guide/",
-  "/config/",
-  "/faq/",
-  "/demo/",
+  "/en/get-started/",
+  "/en/guide/",
+  "/en/config/",
+  "/en/faq/",
+  "/en/demo/",
   {
     text: "Others",
     icon: "circle-info",
+    prefix: "/en/",
     children: [
       {
         text: "Cookbook",
-        prefix: "/cookbook/",
+        prefix: "cookbook/",
         children: ["markdown/", "vuepress/"],
       },
       {
         text: "Project",
-        children: ["/changelog", "/related", "/contribution"],
+        children: ["changelog", "related", "contribution"],
       },
     ],
   },

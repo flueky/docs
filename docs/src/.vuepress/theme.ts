@@ -61,21 +61,21 @@ export default theme(
 
     locales: {
       "/": {
-        navbar: enNavbarConfig,
-        sidebar: enSidebarConfig,
-      },
-      "/zh/": {
         navbar: zhNavbarConfig,
         sidebar: zhSidebarConfig,
+      },
+      "/en/": {
+        navbar: enNavbarConfig,
+        sidebar: enSidebarConfig,
       },
     },
 
     encrypt: {
       config: {
         // eslint-disable-next-line @typescript-eslint/naming-convention
-        "/demo/encrypt.html": "1234",
+        "/en/demo/encrypt.html": "1234",
         // eslint-disable-next-line @typescript-eslint/naming-convention
-        "/zh/demo/encrypt.html": "1234",
+        "/demo/encrypt.html": "1234",
       },
     },
 

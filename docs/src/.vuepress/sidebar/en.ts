@@ -2,7 +2,7 @@ import { sidebar } from "docs-shared";
 
 // region config
 export const enSidebarConfig = sidebar({
-  "/": [
+  "/en/": [
     "",
     "blog-home",
     "custom-blog-home",
@@ -48,16 +48,16 @@ export const enSidebarConfig = sidebar({
     "contribution",
   ],
 
-  "/get-started/": "structure",
+  "/en/get-started/": "structure",
 
-  "/guide/": "structure",
+  "/en/guide/": "structure",
 
-  "/config/": "structure",
+  "/en/config/": "structure",
 
-  "/cookbook/": "structure",
+  "/en/cookbook/": "structure",
 
-  "/demo/": "structure",
+  "/en/demo/": "structure",
 
-  "/faq/": "structure",
+  "/en/faq/": "structure",
 });
 // #endregion config

@@ -2,15 +2,15 @@ import { navbar } from "docs-shared";
 
 // region config
 export const zhNavbarConfig = navbar([
-  "/zh/get-started/",
-  "/zh/guide/",
-  "/zh/config/",
-  "/zh/faq/",
-  "/zh/demo/",
+  "/get-started/",
+  "/guide/",
+  "/config/",
+  "/faq/",
+  "/demo/",
   {
     text: "项目",
     icon: "circle-info",
-    prefix: "/zh/",
+    prefix: "/",
     children: [
       {
         text: "教程",
