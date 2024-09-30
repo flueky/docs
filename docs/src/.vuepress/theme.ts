@@ -51,6 +51,11 @@ export default theme(
       },
     },
 
+    author: {
+      name: "Flueky Zuo",
+      url: "https://flueky.github.io",
+    },
+    
     fullscreen: true,
 
     navbarTitle: "",
