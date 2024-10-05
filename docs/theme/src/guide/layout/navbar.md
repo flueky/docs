@@ -31,14 +31,13 @@ You can add links to the navbar via `navbar` options, it accepts an array.
 The easiest way to configure the navbar is to fill in the paths of the page files to be displayed in turn, so that the text, icons and links of the item will be automatically generated from the corresponding files.
 
 ```js {6} title=".vuepress/config.js"
-import { defineUserConfig } from "vuepress";
 import { hopeTheme } from "vuepress-theme-hope";
 
-export default defineUserConfig({
+export default {
   theme: hopeTheme({
     navbar: ["/guide/README.md", "/config/README.md", "/faq.md"],
   }),
-});
+};
 ```
 
 ::: tip
@@ -85,13 +84,15 @@ export default {
 
 ::: tip Advanced usage of activeMatch
 
-`activeMatch` gives you the ability to control whether the path is active, for example you may have the following dropdown:
+`activeMatch` gives you the ability to control whether the path is active through RegExps.
+
+For example you may have the following dropdown:
 
 - `/path/`
 - `/path/a/`
 - `/path/b/`
 
-But you may have multiple folders with files under `/path/`. To avoid multiple dropdown items been activated under route starting with `/path/a/` or `/path/b/`, you can set `activeMatch` option for the first item with `^/path/(?:(?!a/|b/).*)?$`.
+To avoid multiple dropdown items been activated under route starting with `/path/a/` or `/path/b/`, you can set `activeMatch` option for `/path/` with `^/path/(?:(?!a/|b/).*)?$`.
 
 :::
 

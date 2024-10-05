@@ -24,20 +24,25 @@ export default theme("md-enhance", {
       components: ["Badge", "VPCard"],
     },
 
+    markdownImage: {
+      figure: true,
+      lazyload: true,
+      mark: true,
+    },
+
+    markdownTab: {
+      codeTabs: true,
+    },
+
     mdEnhance: {
       align: true,
       attrs: true,
       chart: true,
-      codetabs: true,
       component: true,
       demo: true,
       echarts: true,
-      figure: true,
       flowchart: true,
       gfm: true,
-      imgLazyload: true,
-      imgMark: true,
-      imgSize: true,
       include: {
         resolvePath: (file) => {
           if (file.startsWith("@echarts"))
@@ -50,30 +55,12 @@ export default theme("md-enhance", {
         },
       },
       kotlinPlayground: true,
-      mathjax: true,
       mark: true,
       markmap: true,
       mermaid: true,
       plantuml: true,
       playground: {
         presets: ["ts", "vue", "unocss"],
-      },
-      revealJs: {
-        plugins: ["highlight", "math", "search", "notes", "zoom"],
-        themes: [
-          "auto",
-          "beige",
-          "black",
-          "blood",
-          "league",
-          "moon",
-          "night",
-          "serif",
-          "simple",
-          "sky",
-          "solarized",
-          "white",
-        ],
       },
       sandpack: true,
       spoiler: true,
@@ -98,7 +85,6 @@ export default theme("md-enhance", {
       ],
       sub: true,
       sup: true,
-      tabs: true,
       tasklist: true,
       vPre: true,
       vuePlayground: true,

@@ -1,4 +1,9 @@
-import { decodeData, isFunction } from "@vuepress/helper/client";
+import {
+  LoadingIcon,
+  decodeData,
+  isFunction,
+  wait,
+} from "@vuepress/helper/client";
 import { useMutationObserver } from "@vueuse/core";
 import type { VNode } from "vue";
 import {
@@ -10,7 +15,6 @@ import {
   shallowRef,
   watch,
 } from "vue";
-import { LoadingIcon } from "vuepress-shared/client";
 
 import { useMermaidOptions } from "../helpers/index.js";
 import type { MermaidThemeVariables } from "../typings/index.js";
@@ -114,13 +118,12 @@ export default defineComponent({
 
     const renderMermaid = async (): Promise<void> => {
       const [{ default: mermaid }] = await Promise.all([
-        import(/* webpackChunkName: "mermaid" */ "mermaid"),
+        import(
+          /* webpackChunkName: "mermaid" */ "mermaid/dist/mermaid.esm.min.mjs"
+        ),
         loaded
           ? Promise.resolve()
-          : ((loaded = true),
-            new Promise((resolve) =>
-              setTimeout(resolve, MARKDOWN_ENHANCE_DELAY),
-            )),
+          : ((loaded = true), wait(MARKDOWN_ENHANCE_DELAY)),
       ]);
 
       mermaid.initialize({
@@ -141,7 +144,6 @@ export default defineComponent({
         startOnLoad: false,
       });
 
-      // eslint-disable-next-line
       svgCode.value = (await mermaid.render(props.id, code.value)).svg;
     };
 

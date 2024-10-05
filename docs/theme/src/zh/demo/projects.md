@@ -269,6 +269,27 @@ docs:
     repo: https://github.com/CoderMast/CoderMast-Notes
     preview: /assets/image/codermast-notes.png
 
+  - name: AmongUs 模组档案
+    desc: 一个记录所有Among Us模组的网站。
+    logo: https://aumod.site/AuModDocs(50r).png
+    url: https://aumod.site/
+    repo: https://github.com/QingFeng-awa
+    preview: https://aumod.site/AuModDocs-BG.png
+
+  - name: Hydro
+    desc: 高性能在线测评系统
+    logo: https://hydro.js.org/favicon.png
+    url: https://hydro.js.org/
+    repo: https://github.com/hydro-dev/Hydro
+    preview: /assets/image/hydro.jpg
+
+  - name: BukkiWiki
+    desc: BukkitWiki是一个Minecraft（我的世界）多人联机资源站
+    logo: https://bukkit.wiki/logo.svg
+    url: https://bukkit.wiki/
+    repo: https://github.com/BukkitWiki/BukkitWiki
+    preview: /assets/image/bukkitwiki.jpg
+
 portfolios:
   - name: 尚程
     url: https://cheng-shang.me/zh/

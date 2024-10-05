@@ -37,11 +37,6 @@ highlights:
       background-repeat: repeat
       background-size: initial
     highlights:
-      - title: Extended Image syntax
-        icon: image
-        details: Set size and color scheme for image and covert them to figure
-        link: ./guide/grammar/image.html
-
       - title: Superscript and subscript support
         icon: superscript
         details: Your Markdown now support superscript and subscript
@@ -51,11 +46,6 @@ highlights:
         icon: square-check
         details: Use tasklist in Markdown
         link: ./guide/grammar/tasklist.html
-
-      - title: Tex Support
-        icon: square-root-variable
-        details: Markdown now have Tex Support so you can write your formula
-        link: ./guide/grammar/tex.html
 
   - header: Content-Centered
     image: /assets/image/edit.svg
@@ -72,16 +62,6 @@ highlights:
         details: split your docs with different parts and import them in Markdown
         link: ./guide/content/include.html
 
-      - title: Presentation Support
-        icon: person-chalkboard
-        details: Insert presentation in Markdown files via Reveal.js
-        link: ./guide/content/revealjs/
-
-      - title: Tabs
-        icon: table-columns
-        details: Group similar content with tabs and switch them together
-        link: ./guide/content/tabs.html
-
       - title: Component Support
         icon: puzzle-piece
         details: Easily insert components in Markdown
@@ -95,16 +75,6 @@ highlights:
       background-repeat: repeat
       background-size: initial
     highlights:
-      - title: Hint box
-        icon: box-archive
-        details: Decorate Markdown content with styles
-        link: ./guide/stylize/hint.html
-
-      - title: GFM alerts
-        icon: bell
-        details: GFM alert box
-        link: ./guide/stylize/alert.html
-
       - title: Custom Align
         icon: align-center
         details: Let you decide to align paragraphs in the way you like
@@ -170,11 +140,6 @@ highlights:
     bgImage: https://theme-hope-assets.vuejs.press/bg/4-light.svg
     bgImageDark: https://theme-hope-assets.vuejs.press/bg/4-dark.svg
     highlights:
-      - title: Code Tabs
-        icon: code
-        details: Group similar codes with tabs
-        link: ./guide/code/code-tabs.html
-
       - title: Code Demo Support
         icon: laptop-code
         details: You can insert code demo easily

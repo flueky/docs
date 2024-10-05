@@ -27,57 +27,6 @@ Some of the behavior might be different, for example to support Vue syntax, we a
 
 :::
 
-### hint
-
-- Type: `boolean`
-- Default: `false`
-- Details:
-  - [Hint box](./guide/stylize/hint.md)
-
-Whether to enable hint box including
-
-- important
-- info
-- note
-- tip
-- warning
-- caution
-- details
-
-::: warning
-
-The last 4 items conflict with default theme and will override its style.
-
-:::
-
-### alert
-
-- Type: `boolean`
-- Default: `false`
-- Enabled in GFM: Yes
-- Details:
-  - [GFM Alerts](./guide/stylize/alert.md)
-
-Whether to enable gfm alerts.
-
-### tabs
-
-- Type: `boolean`
-- Default: `false`
-- Details:
-  - [Tabs](./guide/content/tabs.md)
-
-Whether to enable tabs.
-
-### codetabs
-
-- Type: `boolean`
-- Default: `false`
-- Details:
-  - [Code Tabs](./guide/code/code-tabs.md)
-
-Whether to enable codetabs.
-
 ### align
 
 - Type: `boolean`
@@ -161,62 +110,6 @@ Whether to enable footnote format support.
 
 Whether to enable mark support.
 
-### figure
-
-- Type: `boolean`
-- Default: `false`
-- Details:
-  - [Figure](./guide/grammar/image.md#figure)
-
-Whether enable figure support.
-
-### imgLazyload
-
-- Type: `boolean`
-- Default: `false`
-- Details:
-  - [Image Lazyload](./guide/grammar/image.md#image-lazyload)
-
-Whether to lazy load every image in page in native way.
-
-### imgMark
-
-- Type: `ImageMarkOptions | boolean`
-
-  ```ts
-  interface ImageMarkOptions {
-    /** lightmode only IDs */
-    light?: string[];
-    /** darkmode only IDs */
-    dark?: string[];
-  }
-  ```
-
-- Default: `false`
-- Enabled in GFM: Yes
-- Details:
-  - [Image Mark](./guide/grammar/image.md#image-mark)
-
-Whether enable image mark support.
-
-### imgSize
-
-- Type: `boolean`
-- Default: `false`
-- Details:
-  - [Image Size](./guide/grammar/image.md#image-size)
-
-Whether enable image size support.
-
-### obsidianImgSize
-
-- Type: `boolean`
-- Default: `false`
-- Details:
-  - [Image Size](./guide/grammar/image.md#image-size)
-
-Whether enable obsidian image size support.
-
 ### tasklist
 
 - Type: `TaskListOptions | boolean`
@@ -273,31 +166,6 @@ Whether to enable tasklist format support. You can pass an object to config task
   - [Include files](./guide/content/include.md)
 
 Whether to enable Markdown import support. You can pass in a function for path resolution.
-
-### katex
-
-- Type: `KatexOptions & { copy?: boolean; mhchem?: boolean } | boolean`
-- Default: `false`
-- Details:
-  - [TeX](./guide/grammar/tex.md)
-
-Whether to enable $\TeX$ syntax support through KaTeX. You can pass an object to config KaTeX.
-
-In particular, you can enable the copy and mhchem extensions with `katex.copy: true` and `katex.mhchem: true`.
-
-Please see [Katex Docs](https://katex.org/docs/options.html) for available options.
-
-### mathjax
-
-- Type: `MathJaxOptions | boolean`
-- Default: `false`
-- Enabled in GFM: Yes
-- Details:
-  - [TeX](./guide/grammar/tex.md)
-
-Whether to enable $\TeX$ syntax support through Math Jax. You can pass an object to config Math Jax.
-
-Please see [source code](https://github.com/vuepress-theme-hope/vuepress-theme-hope/tree/main/packages/md-enhance/src/shared/mathjax.ts) for available options.
 
 ### component
 
@@ -640,53 +508,6 @@ Default value: `"https://unpkg.com/react/umd/react.production.min.js"`
 
 Default value: `"https://unpkg.com/react-dom/umd/react-dom.production.min.js"`
 
-### revealJs
-
-- Type: `RevealJsOptions | boolean`
-
-  ```ts
-  type RevealJsPlugin = "highlight" | "math" | "search" | "notes" | "zoom";
-
-  type RevealJsTheme =
-    | "auto"
-    | "beige"
-    | "black"
-    | "blood"
-    | "league"
-    | "moon"
-    | "night"
-    | "serif"
-    | "simple"
-    | "sky"
-    | "solarized"
-    | "white";
-
-  /**
-   * reveal.js options
-   */
-  interface RevealJsOptions {
-    /**
-     * reveal.js plugins
-     *
-     * @default []
-     */
-    plugins?: RevealJsPlugin[];
-
-    /**
-     * reveal.js themes
-     *
-     * @default ["auto"]
-     */
-    themes?: RevealJsTheme[];
-  }
-  ```
-
-- Default: `false`
-- Details:
-  - [Reveal.js](./guide/content/revealjs/README.md)
-
-Whether to enable slides support. You can pass an option to control plugins and themes to import.
-
 ### sandpack
 
 - Type: `boolean`
@@ -732,76 +553,6 @@ If the theme you are using has a switching animation, it is recommended to confi
 
 :::
 
-### locales
-
-- Type: `MarkdownEnhanceLocaleConfig`
-
-  ```ts
-  interface MarkdownEnhanceLocaleData {
-    /**
-     * Default Title text for info block
-     */
-    info: string;
-
-    /**
-     * Default Title text for note block
-     */
-    note: string;
-
-    /**
-     * Default Title text for tip block
-     */
-    tip: string;
-
-    /**
-     * Default Title text for warning block
-     */
-    warning: string;
-
-    /**
-     * Default Title text for danger block
-     */
-    danger: string;
-
-    /**
-     * Default Title text for details block
-     */
-    details: string;
-  }
-
-  interface MarkdownEnhanceLocaleConfig {
-    [localePath: string]: MarkdownEnhanceLocaleData;
-  }
-  ```
-
-- Required: No
-
-Locales config for Markdown Enhance Plugin.
-
-::: details Built-in Supported Languages
-
-- **Simplified Chinese** (zh-CN)
-- **Traditional Chinese** (zh-TW)
-- **English (United States)** (en-US)
-- **German** (de-DE)
-- **German (Australia)** (de-AT)
-- **Russian** (ru-RU)
-- **Ukrainian** (uk-UA)
-- **Vietnamese** (vi-VN)
-- **Portuguese (Brazil)** (pt-BR)
-- **Polish** (pl-PL)
-- **French** (fr-FR)
-- **Spanish** (es-ES)
-- **Slovak** (sk-SK)
-- **Japanese** (ja-JP)
-- **Turkish** (tr-TR)
-- **Korean** (ko-KR)
-- **Finnish** (fi-FI)
-- **Indonesian** (id-ID)
-- **Dutch** (nl-NL)
-
-:::
-
 ## Client Config
 
 ### defineEChartsConfig
@@ -831,14 +582,6 @@ const defineMermaidConfig: (options: MermaidConfig) => void;
 ```
 
 Define config which you want to pass to mermaid.
-
-### defineRevealJsConfig
-
-```ts
-const defineRevealJsConfig: (options: RevealOptions) => void;
-```
-
-Define config which you want to pass to reveal.js.
 
 ### defineKotlinPlaygroundConfig
 

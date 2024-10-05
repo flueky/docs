@@ -9,7 +9,7 @@ let redirectPlugin: (options: RedirectPluginOptions) => Plugin;
 
 try {
   ({ redirectPlugin } = await import("@vuepress/plugin-redirect"));
-} catch (e) {
+} catch {
   // Do nothing
 }
 
@@ -19,7 +19,7 @@ try {
  * Resolve options for @vuepress/plugin-redirect
  */
 export const getRedirectPlugin = (
-  options: RedirectPluginOptions | boolean = false,
+  options?: RedirectPluginOptions | boolean,
 ): Plugin | null => {
   // Disable redirect if no options for redirect plugin
   if (options === false || (isPlainObject(options) && !keys(options).length))

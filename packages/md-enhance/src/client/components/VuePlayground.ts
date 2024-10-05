@@ -1,5 +1,5 @@
 import type { Repl, ReplProps, Store } from "@vue/repl";
-import { deepAssign } from "@vuepress/helper/client";
+import { LoadingIcon, deepAssign } from "@vuepress/helper/client";
 import type { Component, VNode } from "vue";
 import {
   computed,
@@ -10,7 +10,6 @@ import {
   shallowRef,
   version,
 } from "vue";
-import { LoadingIcon } from "vuepress-shared/client";
 
 import { useVuePlaygroundConfig } from "../helpers/index.js";
 import type { VuePlaygroundOptions } from "../typings/index.js";
@@ -107,13 +106,21 @@ export default defineComponent({
     });
 
     return (): (VNode | null)[] => [
-      h("div", { class: "vue-playground-wrapper" }, [
+      h("div", { class: "vp-container vue-playground-wrapper" }, [
         props.title
-          ? h("div", { class: "header" }, decodeURIComponent(props.title))
+          ? h(
+              "div",
+              { class: "vp-container-header" },
+              h(
+                "div",
+                { class: "vp-container-title" },
+                decodeURIComponent(props.title),
+              ),
+            )
           : null,
         h("div", { class: "repl-container" }, [
           loading.value
-            ? h(LoadingIcon, { class: "preview-loading", height: 192 })
+            ? h(LoadingIcon, { class: "vue-preview-loading", height: 192 })
             : null,
           component.value
             ? h(component.value, {

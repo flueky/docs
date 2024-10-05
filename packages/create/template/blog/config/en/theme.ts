@@ -100,15 +100,28 @@ export default hopeTheme({
     },
 
     // These features are enabled for demo, only preserve features you need here
+    markdownImage: {
+      figure: true,
+      lazyload: true,
+      size: true,
+    },
+
+    // markdownMath: {
+    //   // install katex before enabling it
+    //   type: "katex",
+    //   // or install mathjax-full before enabling it
+    //   type: "mathjax",
+    // },
+
+    // This features is enabled for demo, only preserve if you need it
+    markdownTab: true,
+
+    // These features are enabled for demo, only preserve features you need here
     mdEnhance: {
       align: true,
       attrs: true,
-      codetabs: true,
       component: true,
       demo: true,
-      figure: true,
-      imgLazyload: true,
-      imgSize: true,
       include: true,
       mark: true,
       plantuml: true,
@@ -128,7 +141,6 @@ export default hopeTheme({
       ],
       sub: true,
       sup: true,
-      tabs: true,
       tasklist: true,
       vPre: true,
 
@@ -146,22 +158,11 @@ export default hopeTheme({
       // gfm requires mathjax-full to provide tex support
       // gfm: true,
 
-      // install katex before enabling it
-      // katex: true,
-
-      // install mathjax-full before enabling it
-      // mathjax: true,
-
       // install mermaid before enabling it
       // mermaid: true,
 
       // playground: {
       //   presets: ["ts", "vue"],
-      // },
-
-      // install reveal.js before enabling it
-      // revealJs: {
-      //   plugins: ["highlight", "math", "search", "notes", "zoom"],
       // },
 
       // install @vue/repl before enabling it
@@ -226,6 +227,11 @@ export default hopeTheme({
     //       },
     //     ],
     //   },
+    // },
+
+    // install @vuepress/plugin-revealjs and uncomment these if you need slides
+    // revealjs: {
+    //   plugins: ["highlight", "math", "search", "notes", "zoom"],
     // },
   },
 });

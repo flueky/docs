@@ -7,7 +7,7 @@ import {
   keys,
   startsWith,
 } from "@vuepress/helper";
-import type { DocsearchPluginOptions } from "@vuepress/plugin-docsearch";
+import type { DocSearchPluginOptions } from "@vuepress/plugin-docsearch";
 import type { SearchPluginOptions } from "@vuepress/plugin-search";
 import type { App, Page, Plugin } from "vuepress/core";
 import { colors } from "vuepress/utils";
@@ -21,27 +21,27 @@ import type {
 import { themeLocalesData } from "../locales/index.js";
 import { logger } from "../utils.js";
 
-let docsearchPlugin: (options: DocsearchPluginOptions) => Plugin;
+let docsearchPlugin: (options: DocSearchPluginOptions) => Plugin;
 let searchPlugin: (options: SearchPluginOptions) => Plugin;
 let searchProPlugin: (options: SearchProPluginOptions) => Plugin;
-let cut: (content: string, strict?: boolean | undefined) => string[];
+let cut: (content: string, strict?: boolean) => string[];
 
 try {
   ({ docsearchPlugin } = await import("@vuepress/plugin-docsearch"));
-} catch (e) {
+} catch {
   // Do nothing
 }
 
 try {
   ({ searchPlugin } = await import("@vuepress/plugin-search"));
-} catch (e) {
+} catch {
   // Do nothing
 }
 
 try {
   ({ searchProPlugin } = await import("vuepress-plugin-search-pro"));
   ({ cut } = await import("nodejs-jieba"));
-} catch (e) {
+} catch {
   // Do nothing
 }
 
@@ -119,8 +119,7 @@ export const getSearchPlugin = (
       locales: locales["/zh/"]
         ? { "/zh/": DOCSEARCH_ZH_LOCALES }
         : getRootLangPath(app) === "/zh/"
-          ? // eslint-disable-next-line @typescript-eslint/naming-convention
-            { "/": DOCSEARCH_ZH_LOCALES }
+          ? { "/": DOCSEARCH_ZH_LOCALES }
           : {},
       ...plugins.docsearch,
     });
@@ -180,7 +179,6 @@ export const getSearchPlugin = (
                 }
               : getRootLangPath(app) === "/zh/"
                 ? {
-                    // eslint-disable-next-line @typescript-eslint/naming-convention
                     "/": {
                       tokenize: (text, fieldName) =>
                         fieldName === "id" ? [text] : cut(text, true),
@@ -207,8 +205,7 @@ export const getSearchPlugin = (
       locales: locales["/zh/"]
         ? { "/zh/": SEARCH_ZH_LOCALES }
         : getRootLangPath(app) === "/zh/"
-          ? // eslint-disable-next-line @typescript-eslint/naming-convention
-            { "/": SEARCH_ZH_LOCALES }
+          ? { "/": SEARCH_ZH_LOCALES }
           : {},
       ...(isPlainObject(plugins.search) ? plugins.search : {}),
     });

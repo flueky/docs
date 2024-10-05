@@ -61,23 +61,19 @@ The theme adds built-in support for <ProjectLink name="search-pro">`vuepress-plu
          // controls how algolia extracts records from your site
          recordExtractor: ({ $, helpers }) => {
            // The following are the default options for vuepress-theme-hope
-           // vuepress-theme-hope default container class name is theme-hope-content
            return helpers.docsearch({
              recordProps: {
                lvl0: {
-                 selectors: [
-                   ".vp-sidebar-page.active",
-                   ".theme-hope-content h1",
-                 ],
+                 selectors: [".vp-sidebar-link.active", "[vp-content] h1"],
                  defaultValue: "Documentation",
                },
-               lvl1: ".theme-hope-content h1",
-               lvl2: ".theme-hope-content h2",
-               lvl3: ".theme-hope-content h3",
-               lvl4: ".theme-hope-content h4",
-               lvl5: ".theme-hope-content h5",
-               lvl6: ".theme-hope-content h6",
-               content: ".theme-hope-content p, .theme-hope-content li",
+               lvl1: "[vp-content] h1",
+               lvl2: "[vp-content] h2",
+               lvl3: "[vp-content] h3",
+               lvl4: "[vp-content] h4",
+               lvl5: "[vp-content] h5",
+               lvl6: "[vp-content] h6",
+               content: "[vp-content] p, [vp-content] li",
              },
              recordVersion: "v3",
            });
@@ -192,10 +188,9 @@ The theme adds built-in support for <ProjectLink name="search-pro">`vuepress-plu
 1. Customize the plugin with `plugins.docsearch` in theme options.
 
    ```js {7-10} title=".vuepress/config.js"
-   import { defineUserConfig } from "vuepress";
    import { hopeTheme } from "vuepress-theme-hope";
 
-   export default defineUserConfig({
+   export default {
      theme: hopeTheme({
        plugins: {
          docsearch: {
@@ -204,7 +199,7 @@ The theme adds built-in support for <ProjectLink name="search-pro">`vuepress-plu
          },
        },
      }),
-   });
+   };
    ```
 
 ::: info More
@@ -243,33 +238,10 @@ See [Plugin Docs][docsearch] for how to use docsearch plugin and its available o
 
    You can set `plugins.searchPro` to `true` to enable it directly, or set it to an object to customize the plugin.
 
-   ::: code-tabs#language
-
-   @tab TS
-
-   ```ts title=".vuepress/config.ts"
-   import { defineUserConfig } from "vuepress";
-   import { hopeTheme } from "vuepress-theme-hope";
-
-   export default defineUserConfig({
-     theme: hopeTheme({
-       plugins: {
-         searchPro: true,
-         // searchPro: {
-         //   plugin options here
-         // },
-       },
-     }),
-   });
-   ```
-
-   @tab JS
-
    ```js title=".vuepress/config.js"
-   import { defineUserConfig } from "vuepress";
    import { hopeTheme } from "vuepress-theme-hope";
 
-   export default defineUserConfig({
+   export default {
      theme: hopeTheme({
        plugins: {
          searchPro: true,
@@ -278,10 +250,8 @@ See [Plugin Docs][docsearch] for how to use docsearch plugin and its available o
          // },
        },
      }),
-   });
+   };
    ```
-
-   :::
 
 ::: info More
 
@@ -317,33 +287,10 @@ See <ProjectLink name="search-pro">Plugin Docs</ProjectLink> for available optio
 
 1. Customize `plugins.search` in theme options.
 
-   ::: code-tabs#language
-
-   @tab TS
-
-   ```ts title=".vuepress/config.ts"
-   import { defineUserConfig } from "vuepress";
-   import { hopeTheme } from "vuepress-theme-hope";
-
-   export default defineUserConfig({
-     theme: hopeTheme({
-       plugins: {
-         search: true,
-         // search: {
-         //   plugin options here
-         // },
-       },
-     }),
-   });
-   ```
-
-   @tab JS
-
    ```js title=".vuepress/config.js"
-   import { defineUserConfig } from "vuepress";
    import { hopeTheme } from "vuepress-theme-hope";
 
-   export default defineUserConfig({
+   export default {
      theme: hopeTheme({
        plugins: {
          search: true,
@@ -352,10 +299,8 @@ See <ProjectLink name="search-pro">Plugin Docs</ProjectLink> for available optio
          // },
        },
      }),
-   });
+   };
    ```
-
-   :::
 
 ::: info More
 

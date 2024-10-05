@@ -124,21 +124,30 @@ export default theme(
         rss: true,
       },
 
-      mdEnhance: {
+      markdownHint: {
         alert: true,
+      },
+
+      markdownImage: {
+        figure: true,
+        lazyload: true,
+        mark: true,
+        size: true,
+      },
+
+      markdownMath: true,
+
+      markdownTab: true,
+
+      mdEnhance: {
         align: true,
         attrs: true,
         chart: true,
-        codetabs: true,
         component: true,
         demo: true,
         echarts: true,
-        figure: true,
         flowchart: true,
         gfm: true,
-        imgLazyload: true,
-        imgMark: true,
-        imgSize: true,
         include: {
           deep: true,
           resolvePath: (file) => {
@@ -165,30 +174,12 @@ export default theme(
           resolveLinkPath: false,
         },
         kotlinPlayground: true,
-        mathjax: true,
         mark: true,
         markmap: true,
         mermaid: true,
         plantuml: true,
         playground: {
           presets: ["ts", "vue", "unocss"],
-        },
-        revealJs: {
-          plugins: ["highlight", "math", "search", "notes", "zoom"],
-          themes: [
-            "auto",
-            "beige",
-            "black",
-            "blood",
-            "league",
-            "moon",
-            "night",
-            "serif",
-            "simple",
-            "sky",
-            "solarized",
-            "white",
-          ],
         },
         sandpack: true,
         spoiler: true,
@@ -213,10 +204,27 @@ export default theme(
         ],
         sub: true,
         sup: true,
-        tabs: true,
         tasklist: true,
         vPre: true,
         vuePlayground: true,
+      },
+
+      revealjs: {
+        plugins: ["highlight", "math", "search", "notes", "zoom"],
+        themes: [
+          "auto",
+          "beige",
+          "black",
+          "blood",
+          "league",
+          "moon",
+          "night",
+          "serif",
+          "simple",
+          "sky",
+          "solarized",
+          "white",
+        ],
       },
 
       shiki: {

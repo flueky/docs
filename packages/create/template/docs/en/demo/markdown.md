@@ -40,7 +40,7 @@ For these extensions, please read [Markdown extensions in VuePress](https://them
 
 ### Theme Enhancement
 
-By using [`vuepress-plugin-md-enhance`][md-enhance], the theme extends more Markdown syntax and provides richer writing functions.
+By using VuePress plugins, the theme extends more Markdown syntax and provides richer writing functions.
 
 #### Code Tabs
 
@@ -229,7 +229,7 @@ Donate Mr.Hope a cup of coffee. _Recommended_
 
 #### Reveal.js
 
-<iframe src="https://plugin-md-enhance-demo.vuejs.press/snippet/revealjs.html" width="100%" height="400"/>
+<iframe src="https://ecosystem.vuejs.press/plugins/markdown/revealjs/demo.html" width="100%" height="420"/>
 
 - [View Detail](https://theme-hope.vuejs.press/guide/markdown/content/revealjs.html)
 
@@ -321,5 +321,3 @@ end
 <iframe src="https://plugin-md-enhance-demo.vuejs.press/snippet/vue-playground.html" width="100%" height="380"/>
 
 - [View Detail](https://theme-hope.vuejs.press/guide/markdown/code/vue-playground.html)
-
-[md-enhance]: https://md-enhance.vuejs.press/

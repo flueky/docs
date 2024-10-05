@@ -3,10 +3,14 @@ import type { CatalogPluginOptions } from "@vuepress/plugin-catalog";
 import type { CommentPluginOptions } from "@vuepress/plugin-comment";
 import type { CopyCodePluginOptions } from "@vuepress/plugin-copy-code";
 import type { CopyrightPluginOptions } from "@vuepress/plugin-copyright";
-import type { DocsearchPluginOptions } from "@vuepress/plugin-docsearch";
+import type { DocSearchPluginOptions } from "@vuepress/plugin-docsearch";
 import type { FeedPluginOptions } from "@vuepress/plugin-feed";
 import type { GitPluginOptions } from "@vuepress/plugin-git";
 import type { LinksCheckPluginOptions } from "@vuepress/plugin-links-check";
+import type { MarkdownHintPluginOptions } from "@vuepress/plugin-markdown-hint";
+import type { MarkdownImagePluginOptions } from "@vuepress/plugin-markdown-image";
+import type { MarkdownMathPluginOptions } from "@vuepress/plugin-markdown-math";
+import type { MarkdownTabPluginOptions } from "@vuepress/plugin-markdown-tab";
 import type {
   NoticeOptions,
   NoticePluginOptions,
@@ -16,6 +20,7 @@ import type { PrismjsPluginOptions } from "@vuepress/plugin-prismjs";
 import type { PwaPluginOptions } from "@vuepress/plugin-pwa";
 import type { ReadingTimePluginOptions } from "@vuepress/plugin-reading-time";
 import type { RedirectPluginOptions } from "@vuepress/plugin-redirect";
+import type { RevealJsPluginOptions } from "@vuepress/plugin-revealjs";
 import type { SearchPluginOptions } from "@vuepress/plugin-search";
 import type { SeoPluginOptions } from "@vuepress/plugin-seo";
 import type { ShikiPluginOptions } from "@vuepress/plugin-shiki";
@@ -133,7 +138,7 @@ export interface PluginsOptions {
    *
    * @see https://ecosystem.vuejs.press/zh/plugins/search/docsearch.html
    */
-  docsearch?: DocsearchPluginOptions;
+  docsearch?: DocSearchPluginOptions;
 
   /**
    * Feed plugin options
@@ -173,6 +178,62 @@ export interface PluginsOptions {
   linksCheck?: LinksCheckPluginOptions | boolean;
 
   /**
+   * Options for @vuepress/markdown-hint
+   *
+   * @see https://ecosystem.vuejs.press/plugins/markdown/markdown-hint.html
+   *
+   * @description `true` equals to `{ hint: true }`
+   *
+   * @vuepress/markdown-hint 插件配置
+   *
+   * @see https://ecosystem.vuejs.press/zh/plugins/markdown/markdown-hint.html
+   *
+   * @description `true` 等同于 `{ hint: true }`
+   *
+   * @default true
+   */
+  markdownHint?: MarkdownHintPluginOptions | boolean;
+
+  /**
+   * Options for @vuepress/markdown-image
+   *
+   * @see https://ecosystem.vuejs.press/plugins/markdown/markdown-image.html
+   *
+   * @description `true` equals to `{ figure: true, lazyload: true }`
+   *
+   * @vuepress/markdown-image 插件配置
+   *
+   * @see https://ecosystem.vuejs.press/zh/plugins/markdown/markdown-image.html
+   *
+   * @description `true` 等同于 `{ figure: true, lazyload: true }`
+   *
+   * @default true
+   */
+  markdownImage?: MarkdownImagePluginOptions | boolean;
+
+  /**
+   * Options for @vuepress/markdown-math
+   *
+   * @see https://ecosystem.vuejs.press/plugins/markdown/markdown-math.html
+   *
+   * @vuepress/markdown-math 插件配置
+   *
+   * @see https://ecosystem.vuejs.press/zh/plugins/markdown/markdown-math.html
+   */
+  markdownMath?: MarkdownMathPluginOptions | boolean;
+
+  /**
+   * Options for @vuepress/markdown-tab
+   *
+   * @see https://ecosystem.vuejs.press/plugins/markdown/markdown-tab.html
+   *
+   * @vuepress/markdown-tab 插件配置
+   *
+   * @see https://ecosystem.vuejs.press/zh/plugins/markdown/markdown-tab.html
+   */
+  markdownTab?: MarkdownTabPluginOptions | boolean;
+
+  /**
    * md-enhance plugin options
    *
    * @see https://plugin-md-enhance.vuejs.press/config/
@@ -181,34 +242,7 @@ export interface PluginsOptions {
    *
    * @see https://plugin-md-enhance.vuejs.press/zh/config/
    */
-  mdEnhance?:
-    | (Omit<MarkdownEnhancePluginOptions, "hint"> & {
-        /**
-         * Whether to enable hint container including
-         *
-         * - important
-         * - info
-         * - note
-         * - tip
-         * - warning
-         * - caution
-         * - details
-         *
-         * 是否启用提示容器
-         *
-         * - important
-         * - info
-         * - note
-         * - tip
-         * - warning
-         * - caution
-         * - details
-         *
-         * @default true
-         */
-        hint?: boolean;
-      })
-    | false;
+  mdEnhance?: Omit<MarkdownEnhancePluginOptions, "delay"> | false;
 
   /**
    * Notice options
@@ -292,6 +326,17 @@ export interface PluginsOptions {
    * @see https://ecosystem.vuejs.press/zh/plugins/tools/redirect.html
    */
   redirect?: RedirectPluginOptions | boolean;
+
+  /**
+   * Redirect options
+   *
+   * @see https://ecosystem.vuejs.press/plugins/markdown/revealjs/
+   *
+   * 重定向插件配置
+   *
+   * @see https://ecosystem.vuejs.press/zh/plugins/markdown/revealjs/
+   */
+  revealjs?: RevealJsPluginOptions | boolean;
 
   /**
    * @vuepress/search plugin options

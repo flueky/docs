@@ -16,7 +16,7 @@ let feedPlugin: (options: FeedPluginOptions, legacy?: boolean) => Plugin;
 
 try {
   ({ feedPlugin } = await import("@vuepress/plugin-feed"));
-} catch (e) {
+} catch {
   // Do nothing
 }
 
@@ -27,7 +27,7 @@ try {
  */
 export const getFeedPlugin = (
   themeData: ThemeData,
-  options?: Omit<FeedPluginOptions, "hostname"> | boolean | undefined,
+  options?: Omit<FeedPluginOptions, "hostname"> | boolean,
   hostname?: string,
   favicon?: string,
   legacy = false,
@@ -56,7 +56,7 @@ export const getFeedPlugin = (
       ),
     channel: {
       ...(favicon ? { icon: favicon } : {}),
-      ...(themeData.locales["/"].logo
+      ...(themeData.locales["/"]?.logo
         ? { image: themeData.locales["/"].logo }
         : {}),
       ...(globalAuthor.length ? { author: globalAuthor[0] } : {}),

@@ -1,8 +1,7 @@
-import { decodeData } from "@vuepress/helper/client";
+import { LoadingIcon, decodeData, wait } from "@vuepress/helper/client";
 import { useEventListener, useToggle } from "@vueuse/core";
 import type { PropType, SlotsType, VNode } from "vue";
 import { computed, defineComponent, h, onMounted, ref, shallowRef } from "vue";
-import { LoadingIcon } from "vuepress-shared/client";
 
 import { CODEPEN_SVG, JSFIDDLE_SVG } from "./icons.js";
 import type { CodeDemoOptions } from "../../shared/index.js";
@@ -154,15 +153,14 @@ export default defineComponent({
       toggleIsExpand(true);
     });
 
-    onMounted(() => {
-      setTimeout(() => {
-        void loadDemo();
-      }, MARKDOWN_ENHANCE_DELAY);
+    onMounted(async () => {
+      await wait(MARKDOWN_ENHANCE_DELAY);
+      await loadDemo();
     });
 
     return (): VNode =>
-      h("div", { class: "vp-code-demo", id: props.id }, [
-        h("div", { class: "vp-code-demo-header" }, [
+      h("div", { class: "vp-container vp-code-demo", id: props.id }, [
+        h("div", { class: "vp-container-header" }, [
           code.value.isLegal
             ? h("button", {
                 type: "button",
@@ -183,7 +181,7 @@ export default defineComponent({
           props.title
             ? h(
                 "span",
-                { class: "vp-code-demo-title" },
+                { class: "vp-container-title" },
                 decodeURIComponent(props.title),
               )
             : null,
@@ -227,7 +225,7 @@ export default defineComponent({
                     class: "jsfiddle-button",
                     innerHTML: JSFIDDLE_SVG,
                     "aria-label": "JSFiddle",
-                    "data-balloon-pos": "up",
+                    "data-balloon-pos": "down",
                   }),
                 ],
               )
@@ -277,7 +275,7 @@ export default defineComponent({
                     innerHTML: CODEPEN_SVG,
                     class: "codepen-button",
                     "aria-label": "Codepen",
-                    "data-balloon-pos": "up",
+                    "data-balloon-pos": "down",
                   }),
                 ],
               )

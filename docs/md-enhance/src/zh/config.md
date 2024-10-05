@@ -27,28 +27,6 @@ order: 2
 
 :::
 
-### hint
-
-- 类型: `boolean`
-- 默认值: `false`
-- 详情:
-  - [提示容器](./guide/stylize/hint.md)
-
-是否启用提示容器支持:
-
-- info
-- note
-- tip
-- warning
-- caution
-- details
-
-::: warning
-
-最后四个会和默认主题冲突，且会覆盖默认主题的样式与行为。
-
-:::
-
 ### vPre
 
 - 类型: `boolean`
@@ -73,34 +51,6 @@ order: 2
 - 在 GFM 中启用: 是
 
 是否将文字中的链接格式文字转换为链接
-
-### alert
-
-- 类型: `boolean`
-- 默认值: `false`
-- 在 GFM 中启用: 是
-- 详情:
-  - [GFM 警告](./guide/stylize/alert.md)
-
-是否启用 GFM 警告。
-
-### tabs
-
-- 类型: `boolean`
-- 默认值: `false`
-- 详情:
-  - [选项卡](./guide/content/tabs.md)
-
-是否启用选项卡。
-
-### codetabs
-
-- 类型: `boolean`
-- 默认值: `false`
-- 详情:
-  - [代码组](./guide/code/code-tabs.md)
-
-是否启用代码组。
 
 ### align
 
@@ -194,62 +144,6 @@ order: 2
 
 是否启用标记格式支持。
 
-### figure
-
-- 类型: `boolean`
-- 默认值: `false`
-- 详情:
-  - [Figure](./guide/grammar/image.md#图片-figure)
-
-是否启用图片 Figure 支持。
-
-### imgLazyload
-
-- 类型: `boolean`
-- 默认值: `false`
-- 详情:
-  - [图片懒加载](./guide/grammar/image.md#图片懒加载)
-
-是否使用原生方式懒加载页面图片。
-
-### imgMark
-
-- 类型: `ImageMarkOptions | boolean`
-
-  ```ts
-  interface ImageMarkOptions {
-    /** 日间模式的 ID */
-    light?: string[];
-    /** 夜间模式的 ID */
-    dark?: string[];
-  }
-  ```
-
-- 默认值: `false`
-- 在 GFM 中启用: 是
-- 详情:
-  - [图片标记](./guide/grammar/image.md#图片-id-标记)
-
-是否启用图片标注支持
-
-### imgSize
-
-- 类型: `boolean`
-- 默认值: `false`
-- 详情:
-  - [图片尺寸](./guide/grammar/image.md#图片尺寸)
-
-是否启用图片尺寸支持。
-
-### obsidianImgSize
-
-- 类型: `boolean`
-- 默认值: `false`
-- 详情:
-  - [图片尺寸](./guide/grammar/image.md#图片尺寸)
-
-是否启用 obsidian 图片尺寸支持。
-
 ### tasklist
 
 - 类型: `TaskListOptions | boolean`
@@ -306,31 +200,6 @@ order: 2
   - [文件导入](./guide/content/include.md)
 
 是否启用 Markdown 导入支持。你可以传入一个函数进行路径解析。
-
-### katex
-
-- 类型: `KatexOptions & { copy?: boolean; mhchem?: boolean } | boolean`
-- 默认值: `false`
-- 详情:
-  - [TeX](./guide/grammar/tex.md)
-
-是否通过 KaTeX 启用 $\TeX$ 语法支持。你可以传入一个对象作为 KaTeX 的配置选项。
-
-特别地，你可以通过 `katex.copy: true` 和 `katex.mhchem: true` 来启用 copy 和 mhchem 扩展。
-
-可用的选项，详见 [Katex 文档](https://katex.org/docs/options.html)。
-
-### mathjax
-
-- 类型: `MathJaxOptions | boolean`
-- 默认值: `false`
-- 在 GFM 中启用: 是
-- 详情:
-  - [TeX](./guide/grammar/tex.md)
-
-是否通过 Math Jax 启用 $\TeX$ 语法支持。你可以传递一个对象来配置 Math Jax。
-
-可用的选项，详见 [源代码](https://github.com/vuepress-theme-hope/vuepress-theme-hope/tree/main/packages/md-enhance/src/shared/mathjax.ts)。
 
 ### component
 
@@ -673,53 +542,6 @@ CodePen 编辑器显示情况，第一位代表 HTML ，第二位代表 JS，第
 
 默认值: `"https://unpkg.com/react-dom/umd/react-dom.production.min.js"`
 
-### revealJs
-
-- 类型: `RevealJsOptions | boolean`
-
-  ```ts
-  type RevealJsPlugin = "highlight" | "math" | "search" | "notes" | "zoom";
-
-  type RevealJsTheme =
-    | "auto"
-    | "beige"
-    | "black"
-    | "blood"
-    | "league"
-    | "moon"
-    | "night"
-    | "serif"
-    | "simple"
-    | "sky"
-    | "solarized"
-    | "white";
-
-  /**
-   * reveal.js 选项
-   */
-  interface RevealJsOptions {
-    /**
-     * reveal.js 插件
-     *
-     * @default []
-     */
-    plugins?: RevealJsPlugin[];
-
-    /**
-     * reveal.js 主题
-     *
-     * @default ["auto"]
-     */
-    themes?: RevealJsTheme[];
-  }
-  ```
-
-- 默认值: `false`
-- 详情:
-  - [Reveal.js](./guide/content/revealjs/README.md)
-
-是否启用幻灯片支持。你可以传递选项控制导入的插件和主题。
-
 ### sandpack
 
 - 类型: `boolean`
@@ -737,76 +559,6 @@ CodePen 编辑器显示情况，第一位代表 HTML ，第二位代表 JS，第
 ::: tip
 
 如果你使用的主题有切换动画，建议配置此选项为 `切换动画时长 + 200`。
-
-:::
-
-### locales
-
-- 类型: `MarkdownEnhanceLocaleConfig`
-
-  ```ts
-  interface MarkdownEnhanceLocaleData {
-    /**
-     * 信息块的默认标题
-     */
-    info: string;
-
-    /**
-     * 注释块的默认标题
-     */
-    note: string;
-
-    /**
-     * 提示块的默认标题
-     */
-    tip: string;
-
-    /**
-     * 注意块的默认标题
-     */
-    warning: string;
-
-    /**
-     * 警告块的默认标题
-     */
-    danger: string;
-
-    /**
-     * 详情块的默认标题
-     */
-    details: string;
-  }
-
-  interface MarkdownEnhanceLocaleConfig {
-    [localePath: string]: MarkdownEnhanceLocaleData;
-  }
-  ```
-
-- 必填: 否
-
-Markdown 增强插件的国际化配置。
-
-::: details 内置支持语言
-
-- **简体中文** (zh-CN)
-- **繁体中文** (zh-TW)
-- **英文(美国)** (en-US)
-- **德语** (de-DE)
-- **德语(澳大利亚)** (de-AT)
-- **俄语** (ru-RU)
-- **乌克兰语** (uk-UA)
-- **越南语** (vi-VN)
-- **葡萄牙语(巴西)** (pt-BR)
-- **波兰语** (pl-PL)
-- **法语** (fr-FR)
-- **西班牙语** (es-ES)
-- **斯洛伐克** (sk-SK)
-- **日语** (ja-JP)
-- **土耳其语** (tr-TR)
-- **韩语** (ko-KR)
-- **芬兰语** (fi-FI)
-- **印尼语** (id-ID)
-- **荷兰语** (nl-NL)
 
 :::
 
@@ -839,14 +591,6 @@ const defineMermaidConfig: (options: MermaidConfig) => void;
 ```
 
 定义需要传递给 Mermaid 的配置选项。
-
-### defineRevealJsConfig
-
-```ts
-const defineRevealJsConfig: (options: RevealOptions) => void;
-```
-
-定义需要传递给 Reveal.js 的配置选项。
 
 ### defineKotlinPlaygroundConfig
 

@@ -12,7 +12,7 @@ const { url } = import.meta;
  */
 export const prepareBundleConfigFile = (
   app: App,
-  { enableCatalog, enableBlog, enableEncrypt, enableSlide }: ThemeStatus,
+  { enableCatalog, enableBlog, enableEncrypt }: ThemeStatus,
 ): Promise<string> => {
   const imports: string[] = [];
   const enhances: string[] = [];
@@ -71,30 +71,20 @@ defineCatalogInfoGetter((meta) => {
     );
   }
 
-  if (enableSlide) {
-    imports.push(
-      `import Slide from "${getRealPath(
-        "vuepress-plugin-md-enhance/SlidePage",
-        url,
-      )}";`,
-    );
-    layouts.push("Slide");
-  }
-
   return app.writeTemp(
     `theme-hope/config.js`,
     `\
-import { defineClientConfig } from "vuepress/client";
 import { HopeIcon, Layout, NotFound, injectDarkmode, setupDarkmode, setupSidebarItems, scrollPromise } from "${BUNDLE_FOLDER}export.js";
 
 ${imports.join("\n")}
 
+import "${getRealPath("@vuepress/helper/colors.css", url)}";
 import "${getRealPath("@vuepress/helper/normalize.css", url)}";
 import "${BUNDLE_FOLDER}styles/all.scss";
 
 ${actions.join("\n")}
 
-export default defineClientConfig({
+export default {
   enhance: ({ app, router }) => {
     const { scrollBehavior } = router.options;
 
@@ -122,6 +112,7 @@ ${setups.map((item) => `    ${item}`).join("\n")}
     NotFound,
 ${layouts.map((item) => `    ${item},`).join("\n")}
   }
-});`,
+};
+`,
   );
 };
