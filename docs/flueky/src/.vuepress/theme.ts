@@ -54,6 +54,7 @@ export default theme(
     author: {
       name: "Flueky Zuo",
       url: "https://flueky.github.io",
+      email: "flueky.zuo@gmail.com"
     },
     
     fullscreen: true,
@@ -83,7 +84,7 @@ export default theme(
         "/demo/encrypt.html": "1234",
       },
     },
-
+    docsRepo:"https://github.com/flueky/blog.git",
     plugins: {
       blog: {
         excerptLength: 0,
@@ -97,6 +98,8 @@ export default theme(
         ],
       },
 
+      git: true,
+      
       components: {
         components: [
           "ArtPlayer",
