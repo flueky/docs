@@ -1,12 +1,12 @@
 {
-  "name": "theme-docs",
+  "name": "flueky-docs",
   "private": true,
-  "description": "Docs for vuepress-theme-hope",
+  "description": "Flueky's docs and blogs",
   "license": "MIT",
   "author": {
-    "name": "Mr.Hope",
-    "email": "mister-hope@outlook.com",
-    "url": "https://mister-hope.com"
+    "name": "Flueky Zuo",
+    "email": "flueky.zuo@gmail.com",
+    "url": "https://flueky.github.io"
   },
   "type": "module",
   "scripts": {

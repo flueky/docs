@@ -13,9 +13,12 @@ const __dirname = getDirname(import.meta.url);
 export default theme(
   "flueky",
   {
-    repo: "vuepress-theme-hope/vuepress-theme-hope",
+    repo: "flueky/docs",
+    // favicon: "/assets/image/qbl-01.png",
+    logo: "https://flueky.github.io/pic/img/qbl-02.png",
     blog: {
-      name: "VuePress Theme Hope",
+      name: "Flueky's tech site",
+      avatar: "https://flueky.github.io/pic/img/qbl-01.png",
       medias: {
         // Baidu: "https://example.com",
         // BiliBili: "https://example.com",
@@ -53,17 +56,17 @@ export default theme(
 
     author: {
       name: "Flueky Zuo",
-      url: "https://flueky.github.io",
+      url: "https://flueky.github.io/blog/",
       email: "flueky.zuo@gmail.com"
     },
     
     fullscreen: true,
 
-    navbarTitle: "",
+    navbarTitle: "Flueky 技术小站",
 
-    extraLocales: {
-      Русский: "https://theme-hope-ru.vuejs.press/:route",
-    },
+    // extraLocales: {
+    //   Русский: "https://theme-hope-ru.vuejs.press/:route",
+    // },
 
     locales: {
       "/": {

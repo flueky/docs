@@ -21,8 +21,8 @@ export default config("", {
   locales: {
     "/": {
       lang: "zh-CN",
-      title: "vuepress-theme-hope",
-      description: "一个具有强大功能的 vuepress 主题✨",
+      title: "Flueky's 技术小站",
+      // description: "",
     },
     // "/en/": {
     //   lang: "en-US",
