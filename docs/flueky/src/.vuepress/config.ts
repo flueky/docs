@@ -24,11 +24,11 @@ export default config("", {
       title: "vuepress-theme-hope",
       description: "一个具有强大功能的 vuepress 主题✨",
     },
-    "/en/": {
-      lang: "en-US",
-      title: "vuepress-theme-hope",
-      description: "A VuePress theme with tons of features✨",
-    },
+    // "/en/": {
+    //   lang: "en-US",
+    //   title: "vuepress-theme-hope",
+    //   description: "A VuePress theme with tons of features✨",
+    // },
   },
 
   theme,
