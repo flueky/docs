@@ -11,7 +11,7 @@ const __dirname = getDirname(import.meta.url);
 
 // The theme wrapper is located in <root>/docs-shared/src/theme-wrapper.ts
 export default theme(
-  "theme",
+  "flueky",
   {
     repo: "vuepress-theme-hope/vuepress-theme-hope",
     blog: {
@@ -84,7 +84,8 @@ export default theme(
         "/demo/encrypt.html": "1234",
       },
     },
-    docsRepo:"https://github.com/flueky/blog.git",
+    docsRepo: "https://github.com/flueky/docs",
+    docsBranch: "main",
     plugins: {
       blog: {
         excerptLength: 0,
@@ -99,7 +100,7 @@ export default theme(
       },
 
       git: true,
-      
+
       components: {
         components: [
           "ArtPlayer",
