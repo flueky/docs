@@ -188,7 +188,7 @@ $$
 
 ## 提示
 
-::: md-demo 提示
+:::: md-demo 提示
 ::: important Custom Title
 
 A custom important container with `code`, [link](#demo).
@@ -257,4 +257,26 @@ A custom details container with `code`, [link](#demo).
 const a = 1;
 ```
 
+::::
+
+## 自定义对齐
+
+:::: md-demo 对齐
+
+::: left
+左对齐的内容
 :::
+
+::: center
+居中的内容
+:::
+
+::: right
+右对齐的内容
+:::
+
+::: justify
+两端对齐的内容
+:::
+
+::::

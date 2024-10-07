@@ -6,6 +6,7 @@ import { setupTransparentNavbar } from "vuepress-theme-hope/presets/transparentN
 
 import CustomBlogHome from "./layouts/CustomBlogHome.vue";
 import SlotDemo from "./layouts/SlotDemo.vue";
+import FluekyBlogHome from "./layouts/FluekyBlogHome.vue";
 
 defineEChartsConfig({
   setup: async () => {
@@ -21,5 +22,5 @@ export default defineClientConfig({
   setup: () => {
     setupTransparentNavbar({ type: "homepage" });
   },
-  layouts: { CustomBlogHome, SlotDemo },
+  layouts: { CustomBlogHome, SlotDemo, FluekyBlogHome},
 });
