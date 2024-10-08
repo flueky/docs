@@ -23,7 +23,7 @@ const projects = computed(() => frontmatter.value.projects ?? []);
 
 <template>
   <BlogWrapper>
-    <div class="vp-blog">
+    <div class="vp-blog vp-page">
       <BlogHero>
         <template #info="info">
           <HitokotoBlogHero v-bind="info" />
@@ -35,10 +35,10 @@ const projects = computed(() => frontmatter.value.projects ?? []);
       </BlogHero>
 
       <div class="blog-page-wrapper custom">
-        <DropTransition appear :delay="0.16">
+        <DropTransition appear :delay="0.16" class="vp-info">
           <InfoPanel />
         </DropTransition>
-        
+
         <main id="main-content" class="vp-blog-home">
           <DropTransition appear :delay="0.16">
             <ProjectPanel :items="projects" />
@@ -58,11 +58,20 @@ const projects = computed(() => frontmatter.value.projects ?? []);
 </template>
 
 <style lang="scss">
-// .blog-page-wrapper.custom {
-//   direction: rtl;
+.blog-page-wrapper.custom {
+  direction: rtl;
 
-//   > * > * {
-//     direction: ltr;
-//   }
-// }
+  > * > * {
+    direction: ltr;
+  }
+}
+
+.vp-blog-hero {
+  position:static
+}
+
+.vp-blog-info-wrapper.vp-info {
+  margin-left: 0.75rem;
+  margin-right: 0;
+}
 </style>

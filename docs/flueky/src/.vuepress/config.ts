@@ -1,4 +1,5 @@
-import { config, pwaHead } from "docs-shared";
+import { config, pwaHead, searchProPlugin } from "docs-shared";
+import { cut } from "nodejs-jieba";
 import { getDirname, path } from "vuepress/utils";
 
 import theme from "./theme.js";
@@ -32,6 +33,23 @@ export default config("", {
   },
 
   theme,
+
+  plugins: [
+    searchProPlugin({
+      indexContent: true,
+      hotReload: true,
+      customFields: [
+        {
+          getter: ({ frontmatter }): string[] => frontmatter["tag"] as string[],
+          formatter: `Tag: $content`,
+        },
+      ],
+      indexOptions: {
+        tokenize: (text, fieldName) =>
+          fieldName === "id" ? [text] : cut(text, true),
+      },
+    }),
+  ],
 
   pagePatterns: ["**/*.md", "!**/*.snippet.md", "!.vuepress", "!node_modules"],
 
