@@ -260,6 +260,61 @@ const a = 1;
 
 ::::
 
+## 标签
+
+:::: md-demo 标签
+
+A tab of fruit:
+
+::: tabs#fruit
+
+@tab apple#apple
+
+Apple
+
+@tab banana#banana
+
+Banana
+
+:::
+
+Another tab of fruit:
+
+::: tabs#fruit
+
+@tab apple
+
+Apple
+
+@tab banana
+
+Banana
+
+@tab orange
+
+Orange
+
+:::
+
+A tab of fruit without id:
+
+::: tabs
+
+@tab apple
+
+Apple
+
+@tab banana
+
+Banana
+
+@tab orange
+
+Orange
+
+:::
+::::
+
 ## 自定义对齐
 
 :::: md-demo 对齐

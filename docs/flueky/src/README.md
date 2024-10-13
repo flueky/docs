@@ -7,5 +7,5 @@ title: Blog
 heroText: Flueky 技术小站
 # tagline: You can put your slogan here
 heroFullScreen: true
-footer: customize your footer text
+footer: To be what you wanna be
 ---
