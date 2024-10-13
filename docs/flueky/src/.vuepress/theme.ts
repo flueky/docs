@@ -88,7 +88,7 @@ export default theme(
       },
     },
     docsRepo: "https://github.com/flueky/docs",
-    docsBranch: "main",
+    docsBranch: "flueky-2.0.0",
     plugins: {
       blog: {
         excerptLength: 0,
