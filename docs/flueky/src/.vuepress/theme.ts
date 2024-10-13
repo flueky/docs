@@ -59,9 +59,9 @@ export default theme(
       url: "https://flueky.github.io/blog/",
       email: "flueky.zuo@gmail.com"
     },
-    
-    fullscreen: true,
 
+    fullscreen: true,
+    copyright: "Copyright © 2014-2024 by Flueky Zuo | Vuepress theme hope",
     navbarTitle: "Flueky 技术小站",
 
     // extraLocales: {
@@ -72,6 +72,9 @@ export default theme(
       "/": {
         navbar: zhNavbarConfig,
         sidebar: zhSidebarConfig,
+        blogLocales: {
+          timelineTitle: "不积跬步无以至千里"
+        }
       },
       "/en/": {
         navbar: enNavbarConfig,
@@ -220,7 +223,21 @@ export default theme(
         vPre: true,
         vuePlayground: true,
       },
-
+      notice: [
+        // {
+        //   path: "/",
+        //   title: "Notice Title",
+        //   content: "Notice Content",
+        //   actions: [
+        //     {
+        //       text: "Primary Action",
+        //       link: "https://theme-hope.vuejs.press/",
+        //       type: "primary",
+        //     },
+        //     { text: "Default Action" },
+        //   ],
+        // },
+      ],
       revealjs: {
         plugins: ["highlight", "math", "search", "notes", "zoom"],
         themes: [
