@@ -1,5 +1,5 @@
 ---
-title: Git 常用命令
+title: Git 命令解释
 category: 
  - Note
 tag:
@@ -38,6 +38,14 @@ usage: git add [<options>] [--] <pathspec>...
     --pathspec-file-nul   with --pathspec-from-file, pathspec elements are separated with NUL character
 ```
 :::
+
+`add` 将工作区的更改保存到暂存区，准备提交。
+
+```shell
+git add . # 添加当前目录下的全部文件
+git add 'file path' # 添加指定文件，可用相对路径。
+git add -f 'file paht' # 强制添加指定文件，即使在 .gitignore 中
+```
 
 ## apply
 
@@ -337,9 +345,13 @@ Commit contents options
 ```
 :::
 
+`commit` 将暂存区内容，提交到本地仓库中，并生成一个提交记录。
+
 ```shell
-git commit -m 'commit message'
-git commit --amend
+git commit -m 'commit message' # 提交代码到本地仓库
+git commit --amend # 向上一次提交记录中追加改动。可同时修改 commit message。
+git commit -S -m 'commit message' # 使用 GPG 签名
+git commit -a -m 'commit message' # 合并 执行 git add . 和 git commit -m 
 ```
 
 ## config
@@ -742,6 +754,16 @@ usage: git push [<options>] [<repository> [<refspec>...]]
 ```
 :::
 
+`push` 命令将本地仓库的改动推送到远程仓库。如 `Github`, `Gitee`, `Gitlab` 。
+
+```shell
+git push origin main # 推送 main 分支到 origin 仓库
+git push -d origin main # 删除 origin 仓库的 main 分支，(其中默认分支和受保护的分支不能被删除)
+git push origin 'tag name' # 推送单个标签
+git push origin --tags # 推送全部标签到 origin 仓库
+git push origin :refs/tags/'tag name' # 删除 origin 仓库的标签，需要先执行 git tag -d 'tag name'
+```
+
 ## rebase
 
 ::: details git rebase -h
@@ -930,6 +952,20 @@ usage: git stash list [<log-options>]
 ```
 :::
 
+`stash` 命令将未提交的更改保存到 **临时堆栈**，（暂时保存在本地仓库中，**可撤回**）。以便能够切换分支或执行其他操作，但不丢失未提交的工作。
+
+- 未提交的更改包括：工作区的更改，和暂存区的更改。
+
+```shell
+git stash list # 查看全部暂存的记录
+git stash pop # 取出最近暂存的修改记录
+git stash drop # 丢弃最近暂存的修改记录
+```
+
+::: important 提示
+执行 `git stash pop` 后，如遇到和工作区的改动存在冲突，则会保留栈顶的记录。待解决冲突后，需要执行  `git stash drop`。
+:::
+
 ## status
 
 ::: details git status -h
@@ -1032,3 +1068,13 @@ Tag listing options
     -i, --ignore-case     sorting and filtering are case insensitive
 ```
 :::
+
+`tag` 命令对提交记录添加标签标识。 如每次发行版本之后，对最新的提交记录打上标签。
+
+```shell
+git tag -a 'tag name' -m 'tag message' # 对最新的提交添加 tag name, 并记为 tag message
+git tag 'tag name' 'commit id' # 对指定的提交记录添加 tag name，而后需要动态输入 tag message
+git tag -l # 列出全部 tag name
+git tag -n # 列出全部 tag name 和 tag message
+git tag -d 'tag name' # 删除指定的 tag
+```
