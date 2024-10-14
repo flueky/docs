@@ -1,5 +1,5 @@
 ---
-title: Git 常用命令
+title: Git 命令解释
 category: 
  - Note
 tag:
@@ -38,6 +38,14 @@ usage: git add [<options>] [--] <pathspec>...
     --pathspec-file-nul   with --pathspec-from-file, pathspec elements are separated with NUL character
 ```
 :::
+
+`add` 将工作区的更改保存到暂存区，准备提交。
+
+```shell
+git add . # 添加当前目录下的全部文件
+git add 'file path' # 添加指定文件，可用相对路径。
+git add -f 'file paht' # 强制添加指定文件，即使在 .gitignore 中
+```
 
 ## apply
 
@@ -337,9 +345,13 @@ Commit contents options
 ```
 :::
 
+`commit` 将暂存区内容，提交到本地仓库中，并生成一个提交记录。
+
 ```shell
-git commit -m 'commit message'
-git commit --amend
+git commit -m 'commit message' # 提交代码到本地仓库
+git commit --amend # 向上一次提交记录中追加改动。可同时修改 commit message。
+git commit -S -m 'commit message' # 使用 GPG 签名
+git commit -a -m 'commit message' # 合并 执行 git add . 和 git commit -m 
 ```
 
 ## config
@@ -391,6 +403,20 @@ Other
     --default <value>     with --get, use default value when missing entry
 ```
 :::
+
+配置 git 工作环境。分系统，用户，仓库三个级别的配置。
+
+下面给出三个配置文件的位置。
+
+- system: 存储在 `/etc/gitconfig`.
+- global: 存储在 `~/.gitconfig`.
+- local: 存储在 `<repo>/.git/config`.
+
+```shell
+git config --global user.name "user name"
+git config --global user.email "example@example.com"
+git config --global autocrlf=input # 配置 crlf 到 lf 的转换，windows 建议设置 true。
+```
 
 ## fetch 
 
@@ -535,26 +561,44 @@ usage: git init [-q | --quiet] [--bare] [--template=<template-directory>]
 ```
 :::
 
+创建一个空的 git 仓库。 
+
+```shell
+git init test # 创建目录为 test 的仓库
+git init -b main test # 创建默认分支 main 的仓库
+```
+
+::: important 创建裸仓库
+
+默认创建的仓库都带工作区。裸仓库主要用在远程服务仓库，如 github，gitee， 用于开发者提交自己的代码。 
+
+下面是在 linux 环境创建并使用裸仓库的实例。 用户名 `flueky.zuo`
+
+```shell
+git init --base test # 在用户目录下创建 test 裸仓库
+# 以下命令在 git 工作区仓库执行。
+git remote add local flueky.zuo@localhost:test 
+git push local main # 提交代码到 local 仓库。
+```
+
+:::
+
 ## log
 
-::: details git log -h
-```
-usage: git log [<options>] [<revision-range>] [[--] <path>...]
-   or: git show [<options>] <object>...
+ 查看提交记录。
 
-    -q, --quiet           suppress diff output
-    --source              show source
-    --use-mailmap         use mail map file
-    --mailmap             alias of --use-mailmap
-    --clear-decorations   clear all previously-defined decoration filters
-    --decorate-refs <pattern>
-                          only decorate refs that match <pattern>
-    --decorate-refs-exclude <pattern>
-                          do not decorate refs that match <pattern>
-    --decorate[=...]      decorate options
-    -L <range:file>       trace the evolution of line range <start>,<end> or function :<funcname> in <file>
-```
-:::
+ ```shell
+ git log # 默认按照标准格式，由近到远输出提交记录
+ git log --oneline # 简化输出，只显示提交 id 和信息。
+ git log --author 'flueky.zuo' # 查看指定提交者的信息，通常记录在 user.name 和 user.email 中。
+ git log --since/--after '2024-10-01' # 显示指定时间之后的提交。
+ git log --until/--before '2024-10-02' # 显示指定时间之前的提交。
+ git log --grep 'message' # 查看包含指定信息的提交。
+ git log --graph # 显示包含图形的提交记录
+ git log -p # 补丁的形式，显示每个提交的差异。可结合 -- filepath 使用。
+ git log --stat # 显示每次修改提交的文件统计信息。
+ git log -num # 显示最近 num 次的提交。
+ ```
 
 ## merge
 
@@ -710,6 +754,16 @@ usage: git push [<options>] [<repository> [<refspec>...]]
 ```
 :::
 
+`push` 命令将本地仓库的改动推送到远程仓库。如 `Github`, `Gitee`, `Gitlab` 。
+
+```shell
+git push origin main # 推送 main 分支到 origin 仓库
+git push -d origin main # 删除 origin 仓库的 main 分支，(其中默认分支和受保护的分支不能被删除)
+git push origin 'tag name' # 推送单个标签
+git push origin --tags # 推送全部标签到 origin 仓库
+git push origin :refs/tags/'tag name' # 删除 origin 仓库的标签，需要先执行 git tag -d 'tag name'
+```
+
 ## rebase
 
 ::: details git rebase -h
@@ -766,6 +820,40 @@ usage: git rebase [-i] [options] [--exec <cmd>] [--onto <newbase> | --keep-base]
                           apply all changes, even those already present upstream
 ```
 :::
+
+## remote
+
+::: details git remote -h
+```
+usage: git remote [-v | --verbose]
+   or: git remote add [-t <branch>] [-m <master>] [-f] [--tags | --no-tags] [--mirror=<fetch|push>] <name> <url>
+   or: git remote rename <old> <new>
+   or: git remote remove <name>
+   or: git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+   or: git remote [-v | --verbose] show [-n] <name>
+   or: git remote prune [-n | --dry-run] <name>
+   or: git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)...]
+   or: git remote set-branches [--add] <name> <branch>...
+   or: git remote get-url [--push] [--all] <name>
+   or: git remote set-url [--push] <name> <newurl> [<oldurl>]
+   or: git remote set-url --add <name> <newurl>
+   or: git remote set-url --delete <name> <url>
+
+    -v, --verbose         be verbose; must be placed before a subcommand
+```
+:::
+
+本地仓库关联到远程仓库的信息，使用 `remote` 管理。配置信息保存在 `.git/config`。 常用命令如下：
+
+```shell
+git remote -v # 检查 remote 信息
+# 添加 GitHub 地址， 使用 git push github main 推送
+git remote add github git@github.com:flueky/docs.git
+# 重命名 github 到 origin，后续使用 origin 推送代码
+git remote rename github origin
+# 删除这个分支
+git remote remove github
+```
 
 ## reset
 
@@ -862,6 +950,20 @@ usage: git stash list [<log-options>]
    or: git stash create [<message>]
    or: git stash store [(-m | --message) <message>] [-q | --quiet] <commit>
 ```
+:::
+
+`stash` 命令将未提交的更改保存到 **临时堆栈**，（暂时保存在本地仓库中，**可撤回**）。以便能够切换分支或执行其他操作，但不丢失未提交的工作。
+
+- 未提交的更改包括：工作区的更改，和暂存区的更改。
+
+```shell
+git stash list # 查看全部暂存的记录
+git stash pop # 取出最近暂存的修改记录
+git stash drop # 丢弃最近暂存的修改记录
+```
+
+::: important 提示
+执行 `git stash pop` 后，如遇到和工作区的改动存在冲突，则会保留栈顶的记录。待解决冲突后，需要执行  `git stash drop`。
 :::
 
 ## status
@@ -966,3 +1068,13 @@ Tag listing options
     -i, --ignore-case     sorting and filtering are case insensitive
 ```
 :::
+
+`tag` 命令对提交记录添加标签标识。 如每次发行版本之后，对最新的提交记录打上标签。
+
+```shell
+git tag -a 'tag name' -m 'tag message' # 对最新的提交添加 tag name, 并记为 tag message
+git tag 'tag name' 'commit id' # 对指定的提交记录添加 tag name，而后需要动态输入 tag message
+git tag -l # 列出全部 tag name
+git tag -n # 列出全部 tag name 和 tag message
+git tag -d 'tag name' # 删除指定的 tag
+```
