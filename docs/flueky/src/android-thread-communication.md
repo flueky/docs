@@ -10,11 +10,11 @@ tags:
 
 Android 系统中，应用在运行时是一个独立的进程，但是每个进程中可以包含多个线程提高运行效率。在多线程开发中，有一个很重要的原则：**不能在子线程中更新  UI 。**
 
+<!-- more -->
+
 >  Only the original thread that created a view hierarchy can touch its views.
 
 为解决这个问题，目前有多重方案实现子线程和主线程（UI 线程）之间的通信。
-
-<!-- more -->
 
 ## 1. 判断代码执行的线程
 
