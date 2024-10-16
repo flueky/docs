@@ -3,6 +3,7 @@ title: 搭建个人知识库
 category:
  - Note
 tag:
+star: true
 date: 2024-10-15 22:09:40 +0800
 ---
 
