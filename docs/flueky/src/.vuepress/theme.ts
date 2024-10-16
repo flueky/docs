@@ -107,6 +107,15 @@ export default theme(
 
       git: true,
 
+      comment: {
+        provider: "Giscus",
+        repo: "flueky/giscus-discussion",
+        repoId: "R_kgDONA8bwQ",
+        category: "Q&A",
+        categoryId: "DIC_kwDONA8bwc4CjZtc",
+        reactionsEnabled: true
+      },
+
       components: {
         components: [
           "ArtPlayer",
