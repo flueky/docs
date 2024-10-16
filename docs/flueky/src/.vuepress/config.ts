@@ -18,7 +18,7 @@ export default config("", {
       },
     ],
   ],
-  base:"/blog/",
+  base:"/",
   locales: {
     "/": {
       lang: "zh-CN",
