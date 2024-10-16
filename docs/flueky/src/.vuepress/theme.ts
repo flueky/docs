@@ -15,10 +15,10 @@ export default theme(
   {
     repo: "flueky/docs",
     // favicon: "/assets/image/qbl-01.png",
-    logo: "https://flueky.github.io/pic/img/qbl-02.png",
+    logo: "/assets/image/qbl-02.png",
     blog: {
       name: "Flueky's tech site",
-      avatar: "https://flueky.github.io/pic/img/qbl-01.png",
+      avatar: "/assets/image/qbl-01.png",
       medias: {
         // Baidu: "https://example.com",
         // BiliBili: "https://example.com",
