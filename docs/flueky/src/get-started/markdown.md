@@ -1,11 +1,14 @@
 ---
-title: Vuepress Markdown 语法
+title: Markdown 语法
 toc: true
-category: 
- - Note
-tag:
- - Markdown
+order: 3
+category:
+ - Guide
 ---
+
+详细展示了 `Markdown` 的一些基本语法，以及 `vuepress theme hope` 支持的高级语法。
+
+<!-- more -->
 
 ## 示例
 
