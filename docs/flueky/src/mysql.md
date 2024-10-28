@@ -12,28 +12,28 @@ category:
 
 [Docker Hub](https://hub.docker.com/_/mysql) 提供了各个版本的 MySQL。 直接使用 `docker run` 安装。
 
+::: code-tabs
+
+@tab Mac/Linux
 ```shell
 docker run --restart=always --privileged=true \
-  -v /opt/database/mysql/my.cnf:/etc/mysql/my.cnf \
-  -v /opt/database/mysql/conf.d:/ect/mysql/conf.d \
   -v /opt/database/mysql/data:/var/lib/mysql \
-  -v /opt/database/mysql/logs:/var/log/mysql \
   -p 3306:3306 --name mysql \
-  -e MYSQL_ROOT_PASSWORD=admin123 -d mysql:5.7
+  -e MYSQL_ROOT_PASSWORD=admin123 -d mysql
 ```
 
+@tab Windows
 ```cmd
 docker run --restart=always --privileged=true \
-  -v "D:\database\mysql\my.cnf":/etc/mysql/my.cnf \
-  -v "D:\database\mysql\conf.d":/etc/mysql/conf.d \
   -v "D:\database\mysql\data":/var/lib/mysql \
-  -v "D:\database\mysql\logs":/var/log/mysql \
   -p 3306:3306 --name mysql \
-  -e MYSQL_ROOT_PASSWORD=admin123 -d mysql:5.7
+  -e MYSQL_ROOT_PASSWORD=admin123 -d mysql
 ```
+:::
 
-- mysql 默认是最新版本
-- mysql:5.7 指定 5.7 版本
+- 最后一个 `mysql` 表示 docker 镜像，等同于 `mysql:latest`, 也可指定版本，如 `mysql:5.7` 。
+
+###
 
 ## 操作 MySQL
 
@@ -56,7 +56,7 @@ use flueky;
 # 显示数据库中的表
 show tables;
 # 创建数据库表，包含三列(id, username, age)
-create table hello(id int auto_increment primary key, name varchar(50) not null, age int);
+create table hello(id int primary key auto_increment, name varchar(50) not null, age int);
 # 插入数据
 insert into hello (name, age) values('zkf',12);
 # 查询数据
