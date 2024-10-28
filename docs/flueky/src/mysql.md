@@ -33,8 +33,6 @@ docker run --restart=always --privileged=true \
 
 - 最后一个 `mysql` 表示 docker 镜像，等同于 `mysql:latest`, 也可指定版本，如 `mysql:5.7` 。
 
-###
-
 ## 操作 MySQL
 
 ```shell
