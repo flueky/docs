@@ -45,7 +45,7 @@ export const zhSidebarConfig = sidebar({
   //   "contribution",
   // ],
   "/get-started/": "structure",
-  // "/zh/get-started/": "structure",
+  "/vscode/": "structure",
 
   // "/zh/guide/": "structure",
 
