@@ -46,7 +46,13 @@ export const zhSidebarConfig = sidebar({
   // ],
   "/get-started/": "structure",
   "/vscode/": "structure",
-
+  "/": [{
+    text: "NAS",
+    icon: "cloud-arrow-up",
+    prefix: "nas/",
+    children: [
+      "pve/",]
+  }],
   // "/zh/guide/": "structure",
 
   // "/zh/config/": "structure",
