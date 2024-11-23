@@ -1,5 +1,5 @@
 ---
-title:  virtualbox 虚拟机
+title:  VirtualBox 虚拟机
 category: 
  - 虚拟机
 ---
