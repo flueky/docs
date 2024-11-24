@@ -12,6 +12,10 @@ projects:
     name: 快速开始
     desc: 介绍此网页的配置
     link: get-started/
+  - icon: cloud-arrow-up
+    name: NAS
+    desc: Nas 服务器安装与使用
+    link: nas/
 
 footer: To be what you wanna be
 ---
