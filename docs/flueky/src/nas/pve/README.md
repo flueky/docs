@@ -1,12 +1,12 @@
 ---
 title: Proxmox VE
-category: 
- - nas
- - pve
+index: false
+dir:
+  order: 1
 ---
 
 介绍 Proxmox VE 系统的使用。
 
 <!-- more -->
 
-<catalog/>
+<Catalog/>
