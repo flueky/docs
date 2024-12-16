@@ -87,7 +87,7 @@ export default theme(
         // eslint-disable-next-line @typescript-eslint/naming-convention
         "/en/demo/encrypt.html": "1234",
         // eslint-disable-next-line @typescript-eslint/naming-convention
-        "/demo/encrypt.html": "1234",
+        // "/nas/pve/os/win11.html": "1234",
       },
     },
     docsRepo: "https://github.com/flueky/docs",
