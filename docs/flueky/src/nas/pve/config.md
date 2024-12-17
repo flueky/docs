@@ -159,13 +159,21 @@ systemctl restart pveproxy
 
 [^1]: 参考文档：https://blog.csdn.net/Y525698136/article/details/143749739
 
+- 确认 CPU 和主板支持 IOMMU。
+     - Intel：支持 VT-d（Intel Virtualization Technology for Directed I/O）。
+     - AMD：支持 AMD-Vi。
+- 进入 BIOS/UEFI，确保启用了 VT-d（Intel）或 AMD-Vi（AMD）。
+
 ### 术语
 
 IOMMU ： 输入输出内存管理单元。一种主机硬件机制，主要用于管理I/O设备（如图形卡、网络卡和存储设备等）对系统内存的访问。
 ‌SR-IOV（Single Root I/O Virtualization）是一种I/O虚拟化技术，旨在通过硬件支持，将单个PCI Express（PCIe）设备虚拟化为多个独立的虚拟设备，以提高资源利用率和性能‌‌。
 ‌X2APIC‌: 是高级可编程中断控制器（APIC）的一种版本，主要用于x86架构中的中断处理。X2APIC是Intel在Pentium 4和Xeon处理器中引入的一种APIC版本，用于替代早期的APIC版本，如APIC和xAPIC。
+VFIO（Virtual Function I/O）：是 Linux 内核中的一个框架，用于将硬件设备直接分配给虚拟机或用户空间应用程序，允许这些设备以接近本地性能的方式被完全控制。
 
 ### IOMMU
+
+`vim /etc/default/grub` 更新后，执行 `update-grub` 
 
 ```shell
 # 修改 GRUB_CMDLINE_LINUX_DEFAULT 配置为
@@ -175,7 +183,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt video=efifb:off,vesafb
 ```
 
 > 说明：
-> intel_iommu=on 开启IOMMU
+> intel_iommu=on 开启IOMMU, AMD CPU 用 amd_iommu=on
 > iommu=pt 让内核驱动设备性能更高，并且防止Linux将不能直通的设备直通
 > initcall_blacklist=sysfb_init 替代老版本中的 `video=efifb:off,vesafb:off` [参考文档](https://forum.proxmox.com/threads/pci-gpu-passthrough-on-proxmox-ve-8-installation-and-configuration.130218/)。
 > pcie_acs_override=downstream 用于将iommu groups拆分，方便一些板载设备的直通 [参考文档](https://github.com/ivanhao/pvetools/issues/34)。
@@ -192,8 +200,12 @@ echo vfio_iommu_type1 >> /etc/modules
 重启后，验证结果。
 
 ```shell
+# DMAR: IOMMU enabled
 dmesg | grep -E "DMAR|IOMMU"
+# VFIO - User Level meta-driver version: 0.3
 dmesg | grep -i vfio
+# DMAR-IR: Queued invalidation will be enabled to support x2apic and Intr-remapping.
+# DMAR-IR: Enabled IRQ remapping in x2apic mode
 dmesg | grep 'remapping'
 ```
 

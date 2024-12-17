@@ -106,46 +106,55 @@ Windows 资源下载站点：
 - 顺利进入安装页面
 
 ![](./assets/image/win11/11.png)
-![](./assets/image/win11/12.png)
+
+- 选择安装 Windows 11
+
 ![](./assets/image/win11/13.png)
+
+- 产品密钥，输入或者跳过
+
 ![](./assets/image/win11/14.png)
+
+- 选择需要的系统版本，取决于你下载的 iso 文件，可能只有一个版本，不用选。
+
 ![](./assets/image/win11/15.png)
-![](./assets/image/win11/16.png)
 
 - 找不见磁盘，需要安装 VirtIO 驱动
 
 ![](./assets/image/win11/17.png)
+
+- 加载驱动程序
+
 ![](./assets/image/win11/18.png)
+
+- 选择系统安装磁盘
+
 ![](./assets/image/win11/19.png)
+
+-  最后执行安装
+
 ![](./assets/image/win11/20.png)
-
-- 以上步骤执行完成后，进入安装流程
-
-![](./assets/image/win11/21.png)
-![](./assets/image/win11/22.png)
 
 ## 配置 OS
 
+中间会重启数次，最后进入 Windows 系统配置页面。如无提示，直接无脑下一步。
+
 ![](./assets/image/win11/23.png)
-![](./assets/image/win11/24.png)
-![](./assets/image/win11/25.png)
 
 - 连不上网络，也需要安装 VirtIO 驱动
 
 ![](./assets/image/win11/26.png)
+
+- 如图，找到 VirtIO 中的网卡驱动程序
+
 ![](./assets/image/win11/27.png)
+
+- 安装成功后，可看到无线信号和宽带连接
+
 ![](./assets/image/win11/28.png)
-![](./assets/image/win11/29.png)
-![](./assets/image/win11/30.png)
-![](./assets/image/win11/31.png)
-![](./assets/image/win11/32.png)
-![](./assets/image/win11/33.png)
-![](./assets/image/win11/34.png)
-![](./assets/image/win11/35.png)
-![](./assets/image/win11/36.png)
-![](./assets/image/win11/37.png)
-![](./assets/image/win11/38.png)
-![](./assets/image/win11/39.png)
+
+- 最后进入系统界面
+
 ![](./assets/image/win11/40.png)
 
 ## 激活系统
