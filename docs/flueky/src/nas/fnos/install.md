@@ -1,5 +1,5 @@
 ---
-title:  安装飞牛私有云
+title:  安装飞牛 OS
 category: 
  - nas
  - fnos

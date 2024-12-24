@@ -1,5 +1,5 @@
 ---
-title: 飞牛私有云
+title: 飞牛 OS
 index: false
 dir:
   order: 2
